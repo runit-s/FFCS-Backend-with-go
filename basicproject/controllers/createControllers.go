@@ -70,12 +70,11 @@ var CreateCourse = func(w http.ResponseWriter, r *http.Request) {
 	var facId []string
 	err = u.JSONToSlice(&course.Faculty_ids, &facId)
 
-	
 	if err != nil {
 		u.Respond(w, u.Message(false, fmt.Sprintf("Internal Error : %s", err.Error())))
 		return
 	}
-	
+
 	var slotId []string
 	err = u.JSONToSlice(&course.Slot_ids, &slotId)
 
@@ -156,7 +155,7 @@ var CreateSlot = func(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	resp := u.Message(true, "Course Created")
+	resp := u.Message(true, "Slot Created")
 	resp["data"] = slot
 	u.Respond(w, resp)
 }

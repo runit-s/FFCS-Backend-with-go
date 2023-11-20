@@ -1,7 +1,5 @@
 package models
 
-import "fmt"
-
 func GetSameDaySlots(day string, sameDaySlot *[]Slot) error {
 	err := db.Table("slots").Where("day = ?", day).Find(&sameDaySlot).Error
 	return err
@@ -16,11 +14,6 @@ func IsFacultyNotAvailable(facId string) bool {
 	var fac Faculty
 
 	db.Table("faculties").Where("id = ?", facId).First(&fac)
-	println(".....")
-	fmt.Println(fac)
-	fmt.Println("...")
-	fmt.Println(fac.ID)
-	fmt.Println(fac.Name)
 	return fac.ID == ""
 }
 
