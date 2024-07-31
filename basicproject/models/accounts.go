@@ -86,7 +86,7 @@ func (account *Account) Create() map[string]interface{} {
 func Login(registrationNo string, password string) map[string]interface{} {
 
 	account := &Account{}
-	err := GetDB().Table("accounts").Where("registration_no = ?", registrationNo).First(account).Error
+	err := GetDB().Table("accounts").Where("Registration_no = ?", registrationNo).First(account).Error
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
 			return u.Message(false, "Registration No not found")

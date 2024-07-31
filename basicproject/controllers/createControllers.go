@@ -14,6 +14,7 @@ var CreateStudent = func(w http.ResponseWriter, r *http.Request) {
 	account := &models.Account{}
 	err := json.NewDecoder(r.Body).Decode(account)
 	if err != nil {
+		fmt.Print(err)
 		u.Respond(w, u.Message(false, "Invalid Request"))
 	}
 	resp := account.Create() //Create account
